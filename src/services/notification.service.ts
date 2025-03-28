@@ -19,8 +19,6 @@ export class ReminderService {
 
   private static async check24hReminders() {
     const now = new Date();
-    // const appointment24h = new Date(new Date(date_time).getTime() - 24 * 60 * 60 * 1000);
-    // const appointment2h = new Date(new Date(date_time).getTime() - 2 * 60 * 60 * 1000);
     const targetDate = new Date(now.getTime() + 24 * 60 * 60 * 1000);
     
     const appointments = await AppointmentRepository.findAppointments(targetDate, true)

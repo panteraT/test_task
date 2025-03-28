@@ -19,7 +19,7 @@ export class AppointmentRepository extends Repository<Appointment> {
             .leftJoinAndSelect('time_slot.doctor', 'doctor')
             .where('appointment.date_time BETWEEN :start AND :end', {
                 start: targetDate.toISOString().slice(0, 19).replace('T', ' '),
-                end: new Date(targetDate.getTime() + 10 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' ') // +10 минут окно
+                end: new Date(targetDate.getTime() + 15 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' ') // +15 минут окно
             })
             .andWhere(whereClause)
             .getMany();
